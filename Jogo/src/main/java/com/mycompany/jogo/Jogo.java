@@ -4,6 +4,8 @@
 
 package com.mycompany.jogo;
 
+import com.mycompany.jogo.view.Tabuleiro;
+
 /**
  *
  * @author Vinicius
@@ -11,7 +13,6 @@ package com.mycompany.jogo;
 public class Jogo {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        //Ajustando
+         Tabuleiro tab = new Tabuleiro();
     }
 }
