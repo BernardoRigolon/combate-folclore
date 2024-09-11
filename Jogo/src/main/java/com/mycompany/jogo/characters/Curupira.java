@@ -2,22 +2,20 @@ package com.mycompany.jogo.characters;
 
 import com.mycompany.jogo.mechanics.Posicao;
 
-public class Saci extends Personagem{
-
-    @Override
+public class Curupira {
+    
     public boolean verificaMovimentacao(Posicao atual, Posicao depois)
     {
         int x, y;
         x = depois.getL() - atual.getL();
         y = depois.getC() - atual.getC();
-        if(Math.abs(y) > 1 || Math.abs(x) > 1)
+        if(((y > 1 || y < -4) || Math.abs(x) > 1) || (Math.abs(y) == Math.abs(x)))
         {
             return false;
         }
         else
         {
-        return true;
+            return true;
         }
     }
-    
 }
