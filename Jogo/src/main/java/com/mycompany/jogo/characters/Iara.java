@@ -2,8 +2,16 @@ package com.mycompany.jogo.characters;
 
 import com.mycompany.jogo.mechanics.Posicao;
 
-public class Iara {
+public class Iara extends Personagem {
     
+    public Iara(int time)
+    {
+        this.setNome("Iara");
+        this.setPoder(5);
+        this.setTime(time);
+    }
+    
+    @Override
     public boolean verificaMovimentacao(Posicao atual, Posicao depois)
     {
         int x, y;

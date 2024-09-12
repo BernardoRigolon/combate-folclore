@@ -2,12 +2,12 @@ package com.mycompany.jogo.characters;
 
 import com.mycompany.jogo.mechanics.Posicao;
 
-public class MulaSemCabeca extends Personagem {
+public class Caipora extends Personagem {
     
-    public MulaSemCabeca(int time)
+    public Caipora(int time)
     {
-        this.setNome("MulaSemCabeca");
-        this.setPoder(9);
+        this.setNome("Caipora");
+        this.setPoder(2);
         this.setTime(time);
     }
     

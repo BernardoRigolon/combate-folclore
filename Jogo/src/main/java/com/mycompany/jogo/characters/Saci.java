@@ -4,6 +4,13 @@ import com.mycompany.jogo.mechanics.Posicao;
 
 public class Saci extends Personagem{
 
+    public Saci(int time)
+    {
+        this.setNome("Saci");
+        this.setPoder(7);
+        this.setTime(time);
+    }
+    
     @Override
     public boolean verificaMovimentacao(Posicao atual, Posicao depois)
     {

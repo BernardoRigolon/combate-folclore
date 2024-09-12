@@ -1,15 +1,16 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.jogo.characters;
 
 import com.mycompany.jogo.mechanics.Posicao;
 
-public class MulaSemCabeca extends Personagem {
-    
-    public MulaSemCabeca(int time)
-    {
-        this.setNome("MulaSemCabeca");
-        this.setPoder(9);
-        this.setTime(time);
-    }
+/**
+ *
+ * @author berig
+ */
+public class Bandeira extends Personagem {
     
     @Override
     public boolean verificaMovimentacao(Posicao atual, Posicao depois)

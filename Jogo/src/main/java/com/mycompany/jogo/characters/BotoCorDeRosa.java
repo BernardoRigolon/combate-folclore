@@ -2,12 +2,12 @@ package com.mycompany.jogo.characters;
 
 import com.mycompany.jogo.mechanics.Posicao;
 
-public class MulaSemCabeca extends Personagem {
+public class BotoCorDeRosa extends Personagem {
     
-    public MulaSemCabeca(int time)
+    public BotoCorDeRosa(int time)
     {
-        this.setNome("MulaSemCabeca");
-        this.setPoder(9);
+        this.setNome("BotoCorDeRosa");
+        this.setPoder(4);
         this.setTime(time);
     }
     
@@ -18,12 +18,8 @@ public class MulaSemCabeca extends Personagem {
         x = depois.getL() - atual.getL();
         y = depois.getC() - atual.getC();
         if(Math.abs(y) > 1 || Math.abs(x) > 1 || (Math.abs(x)!=0 && Math.abs(x)!=0))
-        {
             return false;
-        }
         else
-        {
-        return true;
-        }
+            return true;
     }
 }
