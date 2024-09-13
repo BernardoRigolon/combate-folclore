@@ -12,9 +12,13 @@ import com.mycompany.jogo.mechanics.Posicao;
  */
 public class Saci extends Personagem{
 
+    public Saci(){
+        nome = "Saci";
+    }
+    
     @Override
     public boolean verificaMovimentacao(Posicao atual, Posicao depois) {
         return false;
     }
-    
+
 }
