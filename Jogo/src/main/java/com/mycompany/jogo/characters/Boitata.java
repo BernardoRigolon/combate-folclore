@@ -4,10 +4,22 @@
  */
 package com.mycompany.jogo.characters;
 
+import com.mycompany.jogo.mechanics.Posicao;
+
 /**
  *
  * @author berig
  */
-public class Boitata {
-    
+public class Boitata extends Personagem{
+    public Boitata(int time)
+    {
+        this.setNome("Boitata");
+        this.setPoder(8);
+        this.setTime(time);
+    }
+    @Override
+    public boolean verificaMovimentacao(Posicao atual, Posicao depois)
+    {
+        return false;
+    }
 }

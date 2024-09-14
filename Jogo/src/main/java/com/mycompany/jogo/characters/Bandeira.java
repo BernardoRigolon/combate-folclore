@@ -12,6 +12,13 @@ import com.mycompany.jogo.mechanics.Posicao;
  */
 public class Bandeira extends Personagem {
     
+        
+    public Bandeira(int time)
+    {
+        this.setNome("Monteiro");
+        this.setPoder(10);
+        this.setTime(time);
+    }
     @Override
     public boolean verificaMovimentacao(Posicao atual, Posicao depois)
     {
