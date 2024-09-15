@@ -1,13 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.jogo.characters;
 
-/**
- *
- * @author berig
- */
-public class Boitata {
+import com.mycompany.jogo.mechanics.Posicao;
+
+public class Boitata extends Personagem {
     
+    public Boitata(int time)
+    {
+        this.setNome("Boitata");
+        this.setPoder(8);
+        this.setTime(time);
+    }
+    
+    @Override
+    public boolean verificaMovimentacao(Posicao atual, Posicao depois)
+    {
+        int x, y;
+        x = depois.getL() - atual.getL();
+        y = depois.getC() - atual.getC();
+        if((Math.abs(y) > 3 || Math.abs(x) > 3) || (Math.abs(x)!=0 && Math.abs(x)!=0))
+        {
+            return false;
+        }
+        else
+        {
+        return true;
+        }
+    }
 }
