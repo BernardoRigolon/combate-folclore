@@ -1,7 +1,7 @@
 package com.mycompany.jogo.mechanics;
 
 public class Posicao {
-   
+
     private int l;
     private int c;
     
