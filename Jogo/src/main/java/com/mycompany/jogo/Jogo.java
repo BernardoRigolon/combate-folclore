@@ -4,16 +4,14 @@
 
 package com.mycompany.jogo;
 
-import com.mycompany.jogo.mechanics.Posicao;
 import com.mycompany.jogo.view.Tabuleiro;
+import com.mycompany.jogo.mechanics.Posicao;
 import java.util.Scanner;
-
 /**
  *
  * @author Vinicius
  */
 public class Jogo {
-
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         Tabuleiro tab = new Tabuleiro();
@@ -50,6 +48,6 @@ public class Jogo {
         } 
         
         System.out.println("Fim do jogo");
-             
+        teclado.close();
     }
 }
