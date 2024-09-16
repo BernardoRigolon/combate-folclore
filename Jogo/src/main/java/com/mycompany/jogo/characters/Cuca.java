@@ -2,12 +2,12 @@ package com.mycompany.jogo.characters;
 
 import com.mycompany.jogo.mechanics.Posicao;
 
-public class Saci extends Personagem{
-
-    public Saci(int time)
+public class Cuca extends Personagem {
+    
+    public Cuca(int time)
     {
-        this.setNome("Saci");
-        this.setPoder(7);
+        this.setNome("Cuca");
+        this.setPoder(10);
         this.setTime(time);
     }
     
@@ -17,7 +17,7 @@ public class Saci extends Personagem{
         int x, y;
         x = depois.getL() - atual.getL();
         y = depois.getC() - atual.getC();
-        if(Math.abs(y) > 1 || Math.abs(x) > 1)
+        if(Math.abs(y) > 1 || Math.abs(x) > 1 || (Math.abs(x)!=0 && Math.abs(x)!=0))
         {
             return false;
         }
@@ -26,5 +26,4 @@ public class Saci extends Personagem{
         return true;
         }
     }
-    
 }
