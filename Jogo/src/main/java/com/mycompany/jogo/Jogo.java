@@ -4,6 +4,7 @@
 
 package com.mycompany.jogo;
 
+import com.mycompany.jogo.mechanics.Combate;
 import com.mycompany.jogo.view.Tabuleiro;
 import com.mycompany.jogo.mechanics.Posicao;
 import java.util.Scanner;
@@ -16,7 +17,7 @@ public class Jogo {
         Scanner teclado = new Scanner(System.in);
         Tabuleiro tab = new Tabuleiro();
         tab.imprimeTab();
-        
+        Combate c;
         int i = 0;
         String posicao;
         Posicao ataque = null;
@@ -31,22 +32,19 @@ public class Jogo {
                 posicao = teclado.nextLine();
                 ataque = tab.parser(posicao);
             }
-            
+           
             System.out.println("Escreva a posição do espaço que quer atacar:   (0,1)");
             posicao = teclado.nextLine();
             alvo = tab.parser(posicao);
-            
-            
-            //Peguei o personagem que tá na posição de ataque e coloquei ele na posição(tab) do alvo;
-            tab.setPersonagem(tab.getPersonagem(ataque.getL(), ataque.getC()), alvo.getL(), alvo.getC()); 
-            //Botar null na posição do ataque
-            tab.setPersonagem(null, ataque.getL(), ataque.getC());
-
+           
+            c=new Combate(tab);
+            c.ataque(ataque,alvo);
+           
             tab.imprimeTab();
             i++;
-            
-        } 
-        
+           
+        }
+       
         System.out.println("Fim do jogo");
         teclado.close();
     }
