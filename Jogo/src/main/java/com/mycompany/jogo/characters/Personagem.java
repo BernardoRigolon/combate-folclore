@@ -2,15 +2,19 @@ package com.mycompany.jogo.characters;
 
 import com.mycompany.jogo.mechanics.Posicao;
 import java.awt.Image;
+import com.mycompany.jogo.view.Tabuleiro;
 
 public abstract class Personagem {
     private String nome;
     private int time;
     private int poder;
     private Image imagem;
+    Tabuleiro tab[][];
     
     //Pega os mecanicas através de um vetor com o button click
     public abstract boolean verificaMovimentacao(Posicao atual, Posicao depois);
+    
+    public abstract boolean verificaPosicao(Posicao atual, Posicao depois);
 
     public String getNome() {
         return nome;
@@ -43,7 +47,6 @@ public abstract class Personagem {
     public void setImagem(Image imagem) {
         this.imagem = imagem;
     }
-    
     
 }
 
