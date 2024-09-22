@@ -28,7 +28,7 @@ public class Combate {
         if(PersoDefesa!=null){
             if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
             {
-     
+                verificaVitoria(PersoAtaque, PersoDefesa);
                 PersoAtaque.setPoder(PersoAtaque.getPoder()-PersoDefesa.getPoder());
                 System.out.println("Agora "+PersoAtaque.getNome()+" Tem "+PersoAtaque.getPoder()+" de poder");
                 tab.setPersonagem(PersoAtaque,defensor.getL(),defensor.getC());
@@ -49,6 +49,15 @@ public class Combate {
         {
             tab.setPersonagem(PersoAtaque, defensor.getL(), defensor.getC());
             tab.setPersonagem(null, atacante.getL(), atacante.getC());
+        }
+    }
+    
+    public void verificaVitoria(Personagem pAtq, Personagem pDef)
+    {
+        if(pDef.getNome()=="Monteiro")
+        {
+            System.out.println("Vitoria do jogador" + pAtq.getTime());
+            System.exit(0);
         }
     }
 }

@@ -16,7 +16,7 @@ public class Bandeira extends Personagem {
     public Bandeira(int time)
     {
         this.setNome("Monteiro");
-        this.setPoder(10);
+        this.setPoder(0);
         this.setTime(time);
     }
     
