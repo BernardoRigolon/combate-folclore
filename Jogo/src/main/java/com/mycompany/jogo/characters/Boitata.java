@@ -31,7 +31,7 @@ public class Boitata extends Personagem {
         {
             for(int i=0; i>x; i--)
             {
-                if(this.getTab().getPersonagem(depois.getL(), depois.getC()-i) != null && (this.getTab().getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || this.getTab().getPersonagem(depois.getL(), depois.getC()).getNome() == "Agua"))
+                if(tab.getPersonagem(depois.getL(), depois.getC()-i) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
             return false;
             }
             return true;
@@ -40,7 +40,7 @@ public class Boitata extends Personagem {
         {
            for(int i=0; i<y; i++)
             {
-                if(this.getTab().getPersonagem(depois.getL(), depois.getC()+i) != null && (this.getTab().getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || this.getTab().getPersonagem(depois.getL(), depois.getC()).getNome() == "Agua"))
+                if(tab.getPersonagem(depois.getL(), depois.getC()+i) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
             return false;
             } 
            return true;
@@ -49,7 +49,7 @@ public class Boitata extends Personagem {
         {
             for(int i=0; i>y; i--)
             {
-                if(this.getTab().getPersonagem(depois.getL(), depois.getC()-i) != null && (this.getTab().getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || this.getTab().getPersonagem(depois.getL(), depois.getC()).getNome() == "Agua"))
+                if(tab.getPersonagem(depois.getL(), depois.getC()-i) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
             return false;
             }
             return true;

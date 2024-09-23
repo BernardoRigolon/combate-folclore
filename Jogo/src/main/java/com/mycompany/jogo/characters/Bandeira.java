@@ -24,7 +24,7 @@ public class Bandeira extends Personagem {
     @Override
     public boolean verificaPosicao(Posicao atual, Posicao depois, Tabuleiro tab)
     {
-        if(this.getTab().getPersonagem(depois.getL(), depois.getC()) == null)
+        if(tab.getPersonagem(depois.getL(), depois.getC()) == null)
             return true;
         else
             return false;

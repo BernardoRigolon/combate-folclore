@@ -21,14 +21,14 @@ public class Iara extends Personagem {
         {
             if(y>0)
             {
-                if((this.getTab().getPersonagem(depois.getL(), depois.getC()-1) == null) && (this.getTab().getPersonagem(depois.getL(), depois.getC()) == null || this.getTab().getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime()))
+                if((tab.getPersonagem(depois.getL(), depois.getC()-1) == null) && (tab.getPersonagem(depois.getL(), depois.getC()) == null || tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime()))
                 return true;
         else
             return false;
             }
             else
             {
-                if((this.getTab().getPersonagem(depois.getL(), depois.getC()+1) == null) && (this.getTab().getPersonagem(depois.getL(), depois.getC()) == null || this.getTab().getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime()))
+                if((tab.getPersonagem(depois.getL(), depois.getC()+1) == null) && (tab.getPersonagem(depois.getL(), depois.getC()) == null || tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime()))
                 return true;
         else
                 return false;
@@ -36,7 +36,7 @@ public class Iara extends Personagem {
         }
         else
         {
-        if(this.getTab().getPersonagem(depois.getL(), depois.getC()) == null || this.getTab().getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
+        if(tab.getPersonagem(depois.getL(), depois.getC()) == null || tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
             return true;
         else
             return false;

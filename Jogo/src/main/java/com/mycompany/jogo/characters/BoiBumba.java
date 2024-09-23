@@ -15,7 +15,7 @@ public class BoiBumba extends Personagem{
     @Override
     public boolean verificaPosicao(Posicao atual, Posicao depois, Tabuleiro tab)
     {
-        if(this.getTab().getPersonagem(depois.getL(), depois.getC()) == null || this.getTab().getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
+        if(tab.getPersonagem(depois.getL(), depois.getC()) == null || tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
             return true;
         else
             return false;
