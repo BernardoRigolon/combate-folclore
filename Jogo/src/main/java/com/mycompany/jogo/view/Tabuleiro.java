@@ -4,6 +4,7 @@
  */
 package com.mycompany.jogo.view;
 
+import com.mycompany.jogo.characters.Agua;
 import com.mycompany.jogo.characters.Personagem;
 
 /**
@@ -21,6 +22,7 @@ import com.mycompany.jogo.characters.Cuca;
 import com.mycompany.jogo.characters.Curupira;
 import com.mycompany.jogo.characters.Iara;
 import com.mycompany.jogo.characters.Lobisomem;
+import com.mycompany.jogo.characters.Montanha;
 import com.mycompany.jogo.characters.MulaSemCabeca;
 import com.mycompany.jogo.mechanics.Posicao;
 
@@ -36,8 +38,9 @@ public class Tabuleiro {
         this.tab = new Personagem[TAM][TAM];
         this.inicializaTab();
     }
+
     
-    private void inicializaTab(){
+    public void inicializaTab(){
         for(int i = 0; i<TAM;i++){
             for(int j = 0; j<TAM;j++){
                 this.tab[i][j] = null;
@@ -76,14 +79,13 @@ public class Tabuleiro {
         //4 iara pra cada lado
         tab[2][1]=tab[2][4]=tab[2][6]=tab[2][9]=new Iara(1);
         tab[8][1]=tab[8][4]=tab[8][6]=tab[8][9]=new Iara(2);
-        /*//6 montanha
-        tab[4][1]=tab[4][5]=tab[4][9]=
-        tab[6][1]=tab[6][5]=tab[6][9]=new Montanha();
+        //6 montanha
+        //tab[4][1]=tab[4][5]=tab[4][9]=tab[6][1]=tab[6][5]=tab[6][9]=new Montanha();
         //12 agua
-        tab[4][2]=tab[4][3]=tab[5][2]=tab[5][3]=
-        tab[4][7]=tab[8][3]=tab[5][7]=tab[5][8]=
-        tab[5][4]=tab[5][9]=tab[7][4]=tab[7][9]=new Agua();
-        */
+        //tab[4][2]=tab[4][3]=tab[5][2]=tab[5][3]=
+        //tab[4][7]=tab[8][3]=tab[5][7]=tab[5][8]=
+        //tab[5][4]=tab[5][9]=tab[7][4]=tab[7][9]=new Agua();
+ 
         } 
     
     public void imprimeTab(){
@@ -149,6 +151,10 @@ public class Tabuleiro {
 
     public void setPersonagem(Personagem p, int l, int c) {
         this.tab[l][c] = p;
+    }
+
+    public Personagem[][] getTab() {
+        return tab;
     }
     
     

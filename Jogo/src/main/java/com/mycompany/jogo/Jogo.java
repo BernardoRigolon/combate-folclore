@@ -7,6 +7,7 @@ package com.mycompany.jogo;
 import com.mycompany.jogo.mechanics.Combate;
 import com.mycompany.jogo.view.Tabuleiro;
 import com.mycompany.jogo.mechanics.Posicao;
+import com.mycompany.jogo.view.JTab;
 import java.util.Scanner;
 /**
  *
@@ -14,6 +15,7 @@ import java.util.Scanner;
  */
 public class Jogo {
     public static void main(String[] args) {
+        JTab j = new JTab();
         Scanner teclado = new Scanner(System.in);
         Tabuleiro tab = new Tabuleiro();
         tab.imprimeTab();
