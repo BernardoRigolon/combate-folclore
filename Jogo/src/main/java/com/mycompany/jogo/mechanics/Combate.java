@@ -19,12 +19,17 @@ public class Combate {
     public Combate(Tabuleiro tab) {
         this.tab = tab;
     }
-    public void ataque(Posicao pAtaque, Posicao pDefesa)
+    public boolean ataque(Posicao pAtaque, Posicao pDefesa, Tabuleiro tab)
     {
         this.atacante=pAtaque;
         this.defensor=pDefesa;
         Personagem PersoAtaque=tab.getPersonagem(atacante.getL(), atacante.getC());
         Personagem PersoDefesa=tab.getPersonagem(defensor.getL(), defensor.getC());
+        if(PersoAtaque.verificaMovimentacao(pAtaque, pDefesa, tab)==false)
+        {
+            System.out.println("Movimento invalido!");
+            return false;
+        }
         if(PersoDefesa!=null){
             if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
             {
@@ -50,13 +55,14 @@ public class Combate {
             tab.setPersonagem(PersoAtaque, defensor.getL(), defensor.getC());
             tab.setPersonagem(null, atacante.getL(), atacante.getC());
         }
+        return true;
     }
     
     public void verificaVitoria(Personagem pAtq, Personagem pDef)
     {
-        if(pDef.getNome()=="Monteiro")
+        if("Monteiro".equals(pDef.getNome()))
         {
-            System.out.println("Vitoria do jogador" + pAtq.getTime());
+            System.out.println("Vitoria do jogador " + pAtq.getTime());
             System.exit(0);
         }
     }

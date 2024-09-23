@@ -1,6 +1,7 @@
 package com.mycompany.jogo.characters;
 
 import com.mycompany.jogo.mechanics.Posicao;
+import com.mycompany.jogo.view.Tabuleiro;
 
 public class Saci extends Personagem{
 
@@ -12,18 +13,18 @@ public class Saci extends Personagem{
     }
     
     @Override
-    public boolean verificaPosicao(Posicao atual, Posicao depois)
+    public boolean verificaPosicao(Posicao atual, Posicao depois, Tabuleiro tab)
     {
-        if(tab[depois.getL()][depois.getC()] == null || tab[depois.getL()][depois.getC()].getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
+        if(this.getTab().getPersonagem(depois.getL(), depois.getC()) == null || this.getTab().getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
             return true;
         else
             return false;
     }
     
     @Override
-    public boolean verificaMovimentacao(Posicao atual, Posicao depois)
+    public boolean verificaMovimentacao(Posicao atual, Posicao depois, Tabuleiro tab)
     {
-        if(this.verificaPosicao(atual, depois))
+        if(this.verificaPosicao(atual, depois, tab))
         {
         int x, y;
         x = depois.getL() - atual.getL();

@@ -38,7 +38,22 @@ public class Jogo {
             alvo = tab.parser(posicao);
            
             c=new Combate(tab);
-            c.ataque(ataque,alvo);
+            while(c.ataque(ataque, alvo, tab)==false)
+            {
+                System.out.println("Escreva a posição do boneco que quer usar:   (0,1)");
+            posicao = teclado.nextLine();
+            ataque = tab.parser(posicao);
+            while(ataque == null){
+                System.out.println("Escreva de novo: ");
+                posicao = teclado.nextLine();
+                ataque = tab.parser(posicao);
+            }
+           
+            System.out.println("Escreva a posição do espaço que quer atacar:   (0,1)");
+            posicao = teclado.nextLine();
+            alvo = tab.parser(posicao);
+            
+            }
            
             tab.imprimeTab();
             i++;

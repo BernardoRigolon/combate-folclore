@@ -9,12 +9,12 @@ public abstract class Personagem {
     private int time;
     private int poder;
     private Image imagem;
-    Tabuleiro tab[][];
+    Tabuleiro tab;
     
     //Pega os mecanicas através de um vetor com o button click
-    public abstract boolean verificaMovimentacao(Posicao atual, Posicao depois);
+    public abstract boolean verificaMovimentacao(Posicao atual, Posicao depois, Tabuleiro tab);
     
-    public abstract boolean verificaPosicao(Posicao atual, Posicao depois);
+    public abstract boolean verificaPosicao(Posicao atual, Posicao depois, Tabuleiro tab);
 
     public String getNome() {
         return nome;
@@ -47,6 +47,11 @@ public abstract class Personagem {
     public void setImagem(Image imagem) {
         this.imagem = imagem;
     }
+
+    public Tabuleiro getTab() {
+        return tab;
+    }
+    
     
 }
 
