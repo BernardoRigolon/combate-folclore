@@ -96,7 +96,7 @@ public class JTab extends JFrame {
         }
 
         add(board);
-        setSize(800, 800);
+        setSize(900, 900);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
