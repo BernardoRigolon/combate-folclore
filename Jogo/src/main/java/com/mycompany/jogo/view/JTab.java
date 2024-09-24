@@ -5,6 +5,8 @@
 package com.mycompany.jogo.view;
 
 import com.mycompany.jogo.characters.Personagem;
+import com.mycompany.jogo.mechanics.Combate;
+import com.mycompany.jogo.mechanics.Posicao;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,6 +17,13 @@ public class JTab extends JFrame {
     private Personagem[][] tab;
     private final int TAM = 11;
     private JButton[][] tela = new JButton[TAM][TAM];
+    
+    private int linhaAtc = -1;
+    private int colunaAtc = -1;
+    private Personagem personagemAtc = null;
+    
+    private Posicao ataque;
+    private Posicao defesa;
 
     public JTab() {
         super("Tabuleiro do Jogo");
@@ -30,22 +39,59 @@ public class JTab extends JFrame {
                 JButton botoes = new JButton();
                 
                 // Definir a aparência das células com base no personagem
-                if (tab[i][j] != null) {
-                    botoes.setText(tab[i][j].getNome() + " - " + tab[i][j].getPoder());  // Exibe o nome do personagem
-                } else {
-                    botoes.setText("");  // Se não houver personagem, exibe "Nada"
-                }
+                atualizaCelula(botoes,i,j);
                 
-                tela[i][j] = botoes;
-                board.add(botoes);
+                botoes.setBackground(Color.white);
+                
+                final int l = i;
+                final int c = j;
                 
                 // Adicionar um listener de clique se quiser permitir interação
-                botoes.addActionListener(new ActionListener() {
+               botoes.addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        JButton source = (JButton) e.getSource();
+                        JButton botao = tela[l][c];
+                        
+                        if(personagemAtc == null){
+                           if(tab[l][c] != null){
+                               personagemAtc = tab[l][c];
+                               linhaAtc = l;
+                               colunaAtc = c;
+                               ataque = new Posicao(l,c);
+                               botao.setBackground(Color.blue);
+                           }
+                        }
+                        else{
+                            defesa = new Posicao(l,c);
+                            Combate combate = new Combate(tabuleiro);
+                            boolean podeAtacar = combate.ataque(ataque, defesa, tabuleiro);
+                            
+                            if(podeAtacar){
+                               atualizaCelula(tela[linhaAtc][colunaAtc],linhaAtc,colunaAtc);
+                               atualizaCelula(tela[l][c],l,c); 
+                               botao.setBackground(Color.green);
+                            }
+                            else{
+                                JOptionPane.showMessageDialog(null, "Movimento inválido!");
+                            }
+                            
+                            tela[linhaAtc][colunaAtc].setBackground(Color.white);
+                            tela[l][c].setBackground(Color.white);
+                            personagemAtc = null;
+                            linhaAtc = -1;
+                            colunaAtc = -1;
+                            
+                            
+                            
+                        }
                     }
-                });
+                   
+               });
+               
+               
+               tela[i][j] = botoes;
+               botoes.setBackground(Color.white);
+               board.add(botoes);
             }
         }
 
@@ -53,6 +99,14 @@ public class JTab extends JFrame {
         setSize(800, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+    }
+    
+    private void atualizaCelula(JButton button, int row, int col) {
+        if (tab[row][col] != null) {
+            button.setText(tab[row][col].getNome() + "-" + tab[row][col].getPoder());
+        } else {
+            button.setText("");
+        }
     }
 }
 
