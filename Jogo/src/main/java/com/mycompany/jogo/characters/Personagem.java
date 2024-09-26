@@ -10,6 +10,7 @@ public abstract class Personagem {
     private int poder;
     private Image imagem;
     Tabuleiro tab;
+    private String descricao;  //Fazer a descrição da movimentação de cada
     
     //Pega os mecanicas através de um vetor com o button click
     public abstract boolean verificaMovimentacao(Posicao atual, Posicao depois, Tabuleiro tab);
@@ -51,6 +52,11 @@ public abstract class Personagem {
     public Tabuleiro getTab() {
         return tab;
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
+    
     
     
 }
