@@ -24,6 +24,8 @@ public class JTab extends JFrame {
     
     private Posicao ataque;
     private Posicao defesa;
+    
+    private boolean vez1 = true;
 
     public JTab() {
         super("Tabuleiro do Jogo");
@@ -54,11 +56,17 @@ public class JTab extends JFrame {
                         
                         if(personagemAtc == null){
                            if(tab[l][c] != null){
-                               personagemAtc = tab[l][c];
-                               linhaAtc = l;
-                               colunaAtc = c;
-                               ataque = new Posicao(l,c);
-                               botao.setBackground(Color.blue);
+                               if((tab[l][c].getTime()==1 && vez1) || (tab[l][c].getTime()==2 && !vez1)){
+                                    personagemAtc = tab[l][c];
+                                    linhaAtc = l;
+                                    colunaAtc = c;
+                                    ataque = new Posicao(l,c);
+                                    botao.setBackground(Color.blue); 
+                                    vez1 = !vez1;
+                                    System.out.println("Entrou e trocou o vez");
+                               }
+                               else
+                                   JOptionPane.showMessageDialog(null, "Vez do outro jogador");   
                            }
                         }
                         else{
@@ -73,6 +81,7 @@ public class JTab extends JFrame {
                             }
                             else{
                                 JOptionPane.showMessageDialog(null, "Movimento inválido!");
+                                vez1=!vez1;
                             }
                             
                             tela[linhaAtc][colunaAtc].setBackground(Color.white);
@@ -101,9 +110,13 @@ public class JTab extends JFrame {
         setVisible(true);
     }
     
-    private void atualizaCelula(JButton button, int row, int col) {
-        if (tab[row][col] != null) {
-            button.setText(tab[row][col].getNome() + "-" + tab[row][col].getPoder());
+    private void atualizaCelula(JButton button, int l, int c) {
+        if (tab[l][c] != null) {
+            button.setText(tab[l][c].getNome() + "-" + tab[l][c].getPoder());
+            if(tab[l][c].getTime() == 1)
+                button.setForeground(Color.red);
+            else
+                button.setForeground(Color.green);
         } else {
             button.setText("");
         }
