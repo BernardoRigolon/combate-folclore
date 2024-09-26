@@ -7,7 +7,7 @@ public class MulaSemCabeca extends Personagem {
     
     public MulaSemCabeca(int time)
     {
-        this.setNome("MulaSemCabeca");
+        this.setNome("Mula");
         this.setPoder(9);
         this.setTime(time);
     }

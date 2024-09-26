@@ -7,7 +7,7 @@ public class BotoCorDeRosa extends Personagem {
     
     public BotoCorDeRosa(int time)
     {
-        this.setNome("BotoCorDeRosa");
+        this.setNome("Boto");
         this.setPoder(4);
         this.setTime(time);
     }

@@ -7,7 +7,7 @@ public class Montanha extends Personagem {
     
     public Montanha()
     {
-      this.setNome("Agua");
+      this.setNome("Montanha");
     }
     
     @Override
