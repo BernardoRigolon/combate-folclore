@@ -82,9 +82,7 @@ public class Tabuleiro {
         //6 montanha
         //tab[4][1]=tab[4][5]=tab[4][9]=tab[6][1]=tab[6][5]=tab[6][9]=new Montanha();
         //12 agua
-        //tab[4][2]=tab[4][3]=tab[5][2]=tab[5][3]=
-        //tab[4][7]=tab[8][3]=tab[5][7]=tab[5][8]=
-        //tab[5][4]=tab[5][9]=tab[7][4]=tab[7][9]=new Agua();
+        tab[4][2]=tab[4][3]=tab[5][2]=tab[5][3]=tab[4][7]=tab[8][3]=tab[5][7]=tab[5][8]=tab[5][4]=tab[5][9]=tab[7][4]=tab[7][9]=new Agua();
  
         } 
     

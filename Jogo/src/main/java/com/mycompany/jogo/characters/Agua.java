@@ -5,7 +5,7 @@ import com.mycompany.jogo.view.Tabuleiro;
 
 public class Agua extends Personagem {
     
-    public Agua(Tabuleiro tab) {
+    public Agua() {
     this.setNome("Agua");
 }
     

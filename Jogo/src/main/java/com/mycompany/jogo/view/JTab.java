@@ -36,14 +36,17 @@ public class JTab extends JFrame {
 
         // Configura o layout do tabuleiro em uma grade 11x11
         JPanel board = new JPanel(new GridLayout(TAM, TAM));
+        
         for (int i = 0; i < TAM; i++) {
             for (int j = 0; j < TAM; j++) {
                 JButton botoes = new JButton();
                 
+                
                 // Definir a aparência das células com base no personagem
                 atualizaCelula(botoes,i,j);
                 
-                botoes.setBackground(Color.white);
+                //botoes.setBackground(Color.white);
+                //desenhaFundo(botoes,i,j);
                 
                 final int l = i;
                 final int c = j;
@@ -59,9 +62,9 @@ public class JTab extends JFrame {
                                linhaAtc = l;
                                colunaAtc = c;
                                ataque = new Posicao(l,c);
-                               botao.setBackground(Color.blue);
+                               //botao.setBackground(Color.blue);
+                               botao.setForeground(Color.white);
                                vez1 = !vez1;
-                               System.out.println("Entrou e trocou o vez");
                            }
                            else
                                JOptionPane.showMessageDialog(null, "Vez do outro jogador");
@@ -75,15 +78,17 @@ public class JTab extends JFrame {
                        if(podeAtacar){
                            atualizaCelula(tela[linhaAtc][colunaAtc],linhaAtc,colunaAtc);
                            atualizaCelula(tela[l][c],l,c);
-                           botao.setBackground(Color.green);
+                           //botao.setBackground(Color.green);
                        }
                        else{
                            JOptionPane.showMessageDialog(null, "Movimento inválido!");
                            vez1=!vez1;
                        }
                        
-                       tela[linhaAtc][colunaAtc].setBackground(Color.white);
-                       tela[l][c].setBackground(Color.white);
+                       //tela[linhaAtc][colunaAtc].setBackground(Color.white);
+                       //desenhaFundo(botao,linhaAtc,colunaAtc);
+                       //desenhaFundo(botao,l,c);
+                       //tela[l][c].setBackground(Color.white);
                        personagemAtc = null;
                        linhaAtc = -1;
                        colunaAtc = -1;
@@ -95,7 +100,9 @@ public class JTab extends JFrame {
                
                
                tela[i][j] = botoes;
-               botoes.setBackground(Color.white);
+               //botoes.setBackground(Color.white);
+               //desenhaFundo(botoes,i,j);
+               //desenhaFundo(botoes,linhaAtc,colunaAtc);
                board.add(botoes);
             }
         }
@@ -111,11 +118,31 @@ public class JTab extends JFrame {
             button.setText(tab[l][c].getNome() + "-" + tab[l][c].getPoder());
             button.setToolTipText(tab[l][c].getDescricao());
             if(tab[l][c].getTime() == 1)
-                button.setForeground(Color.red);
+                button.setForeground(new Color(145,8,148));
             else
-                button.setForeground(Color.green);
+                button.setForeground(new Color(255, 116, 2));
+            
+            if((l+c)%2==0){
+                if(!"Agua".equals(tab[l][c].getNome()))
+                    button.setBackground(new Color(142,204,59));
+                else
+                    button.setBackground(new Color(15, 142, 171));
+            }                    
+            else{
+                if(!"Agua".equals(tab[l][c].getNome()))
+                    button.setBackground(new Color(167,218,74));
+                else
+                    button.setBackground(new Color(15, 142, 171));
+            }
+                    //button.setBackground(new Color(167,218,74));
+            
         } else {
             button.setText("");
+            if((l+c)%2==0){
+                button.setBackground(new Color(142,204,59));
+            }                    
+            else
+                button.setBackground(new Color(167,218,74));
         }
     }
 }
