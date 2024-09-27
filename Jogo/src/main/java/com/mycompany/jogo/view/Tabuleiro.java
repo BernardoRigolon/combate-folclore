@@ -50,8 +50,8 @@ public class Tabuleiro {
         tab[0][5]=new Bandeira(1);
         tab[10][5]=new Bandeira(2);
         // uma cuca pra cada lado
-        tab[0][0]=new Cuca(1);
-        tab[10][0]=new Cuca(2);
+        tab[0][10]=new Cuca(1);
+        tab[10][10]=new Cuca(2);
         //4 curupira pra cada lado
         tab[0][1]=tab[1][0]=tab[0][9]=tab[1][10]=new Curupira(1);
         tab[10][1]=tab[9][0]=tab[10][9]=tab[9][10]=new Curupira(2);
