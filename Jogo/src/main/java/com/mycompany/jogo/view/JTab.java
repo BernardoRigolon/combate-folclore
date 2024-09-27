@@ -81,6 +81,10 @@ public class JTab extends JFrame {
                            //botao.setBackground(Color.green);
                        }
                        else{
+                           if(tab[l][c].getTime() == 1)
+                                tela[linhaAtc][colunaAtc].setForeground(new Color(145,8,148));
+                           else
+                                tela[linhaAtc][colunaAtc].setForeground(new Color(255, 116, 2));
                            JOptionPane.showMessageDialog(null, "Movimento inválido!");
                            vez1=!vez1;
                        }
@@ -115,7 +119,11 @@ public class JTab extends JFrame {
     
     private void atualizaCelula(JButton button, int l, int c) {
         if (tab[l][c] != null) {
-            button.setText(tab[l][c].getNome() + "-" + tab[l][c].getPoder());
+            if("Agua".equals(tab[l][c].getNome()) || "Montanha".equals(tab[l][c].getNome())){
+                button.setText("");
+            }
+            else
+                button.setText(tab[l][c].getNome() + "-" + tab[l][c].getPoder());
             button.setToolTipText(tab[l][c].getDescricao());
             if(tab[l][c].getTime() == 1)
                 button.setForeground(new Color(145,8,148));
@@ -123,16 +131,20 @@ public class JTab extends JFrame {
                 button.setForeground(new Color(255, 116, 2));
             
             if((l+c)%2==0){
-                if(!"Agua".equals(tab[l][c].getNome()))
-                    button.setBackground(new Color(142,204,59));
-                else
+                if("Agua".equals(tab[l][c].getNome()))
                     button.setBackground(new Color(15, 142, 171));
+                else if("Montanha".equals(tab[l][c].getNome()))
+                    button.setBackground(new Color(210, 115, 21));
+                else
+                    button.setBackground(new Color(142,204,59));
             }                    
             else{
-                if(!"Agua".equals(tab[l][c].getNome()))
-                    button.setBackground(new Color(167,218,74));
-                else
+                if("Agua".equals(tab[l][c].getNome()))
                     button.setBackground(new Color(15, 142, 171));
+                else if("Montanha".equals(tab[l][c].getNome()))
+                    button.setBackground(new Color(210, 115, 21));
+                else
+                    button.setBackground(new Color(167,218,74));
             }
                     //button.setBackground(new Color(167,218,74));
             

@@ -32,6 +32,11 @@ public class Combate {
             return false;
         }
         if(PersoDefesa!=null){
+            if(PersoDefesa.getNome().equals("Agua")||PersoDefesa.getNome().equals("Montanha"))
+            {
+                return false;
+            }
+            
             if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
             {
                 verificaVitoria(PersoAtaque, PersoDefesa);
