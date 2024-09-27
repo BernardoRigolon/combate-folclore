@@ -23,7 +23,7 @@ public class Curupira extends Personagem{
         {
         for(int i=0; i<x; i++)
         {
-        if(tab.getPersonagem(depois.getL(), depois.getC()+i) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
+        if(tab.getPersonagem(depois.getL()-i, depois.getC()) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
             return false;
         }
         }
@@ -31,7 +31,7 @@ public class Curupira extends Personagem{
         {
             for(int i=0; i<x; i++)
         {
-        if(tab.getPersonagem(depois.getL(), depois.getC()-i) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
+        if(tab.getPersonagem(depois.getL()+i, depois.getC()) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
             return false;
         }
         }
@@ -54,7 +54,7 @@ public class Curupira extends Personagem{
         int x, y;
         x = depois.getL() - atual.getL();
         y = depois.getC() - atual.getC();
-        if(((y > 1 || y < -4) || Math.abs(x) > 1) || (Math.abs(y) == Math.abs(y)) || (x==0 && y==0))
+        if(((x > 4 || x < -4) || Math.abs(y) > 1) || (Math.abs(x)!=0 && Math.abs(y)!=0) || (x==0 && y==0))
         {
             return false;
         }
@@ -63,7 +63,10 @@ public class Curupira extends Personagem{
             return true;
         }
         }
+        else
+        {
         System.out.println("Posição inválida");
         return false;
+        }
     }
 }
