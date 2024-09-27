@@ -18,14 +18,15 @@ public class Jogo {
         JTab j = new JTab();
         Scanner teclado = new Scanner(System.in);
         Tabuleiro tab = new Tabuleiro();
-        tab.imprimeTab();
+        //tab.imprimeTab();
+        System.out.println("Tirei todas as impressoes aqui do terminal");
         Combate c;
         int i = 0;
         String posicao;
         Posicao ataque = null;
         Posicao alvo = null;
         //Aqui é pra ser tipo while(bandeira.poder > 0)
-        while(i<4){
+        /*while(i<4){
             System.out.println("Escreva a posição do boneco que quer usar:   (0,1)");
             posicao = teclado.nextLine();
             ataque = tab.parser(posicao);
@@ -63,6 +64,6 @@ public class Jogo {
         }
        
         System.out.println("Fim do jogo");
-        teclado.close();
+        teclado.close();*/
     }
 }

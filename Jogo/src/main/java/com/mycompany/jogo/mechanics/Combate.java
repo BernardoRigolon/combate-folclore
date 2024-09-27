@@ -6,6 +6,7 @@ package com.mycompany.jogo.mechanics;
 
 import com.mycompany.jogo.characters.Personagem;
 import com.mycompany.jogo.view.Tabuleiro;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -61,9 +62,8 @@ public class Combate {
     public void verificaVitoria(Personagem pAtq, Personagem pDef)
     {
         if("Monteiro".equals(pDef.getNome()))
-        {
-            System.out.println("Vitoria do jogador " + pAtq.getTime());
-            System.exit(0);
+        {           
+            JOptionPane.showMessageDialog(null, "Vitória do time " + pAtq.getTime()); 
         }
     }
 }
