@@ -35,15 +35,40 @@ public class Combate {
             if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
             {
                 verificaVitoria(PersoAtaque, PersoDefesa);
-                PersoAtaque.setPoder(PersoAtaque.getPoder()-PersoDefesa.getPoder());
+                if(!"Lobisomem".equals(PersoAtaque.getNome()) || !"Cuca".equals(PersoDefesa.getNome()))
+                {
+                    if("Caipora".equals(PersoAtaque.getNome()))
+                        PersoAtaque.setPoder(0);
+                    else
+                    PersoAtaque.setPoder(PersoAtaque.getPoder()-PersoDefesa.getPoder());
+                }
                 System.out.println("Agora "+PersoAtaque.getNome()+" Tem "+PersoAtaque.getPoder()+" de poder");
+                if("Caipora".equals(PersoAtaque.getNome()))
+                {
+                    tab.setPersonagem(null, atacante.getL(), atacante.getC());
+                }
+                else
+                {
                 tab.setPersonagem(PersoAtaque,defensor.getL(),defensor.getC());
                 tab.setPersonagem(null, atacante.getL(), atacante.getC());
+                }
             }
             else if(PersoAtaque.getPoder()<PersoDefesa.getPoder())
             {
+                if("Lobisomem".equals(PersoAtaque.getNome()) && "Cuca".equals(PersoDefesa.getNome()))
+                {
+                    PersoDefesa.setPoder(0);
+                    tab.setPersonagem(PersoAtaque,defensor.getL(),defensor.getC());
+                    tab.setPersonagem(null, atacante.getL(), atacante.getC());
+                }
+                else
+                {
+                    if("Caipora".equals(PersoAtaque.getNome()))
+                    PersoDefesa.setPoder(PersoDefesa.getPoder()+PersoAtaque.getPoder());
+                    else
                 PersoDefesa.setPoder(PersoDefesa.getPoder()-PersoAtaque.getPoder());
                 tab.setPersonagem(null, atacante.getL(), atacante.getC());
+                }
             }
             else
             {
