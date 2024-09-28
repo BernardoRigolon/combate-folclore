@@ -8,6 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 /**
  *
  * @author micka
@@ -15,7 +18,7 @@ import java.awt.event.ActionListener;
 
 
 public class TelaInicial extends JFrame {
-    
+    private static final String jogArq = "jogadores.txt";
     public TelaInicial() {
 
         super("Menu");
@@ -34,7 +37,7 @@ public class TelaInicial extends JFrame {
             }
         });
         painelBotoes.add(btnNovoJogo);
-        JButton btnAdministracao = new JButton("Tela de Administração");
+        JButton btnAdministracao = new JButton("Administração");
         btnAdministracao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -57,7 +60,29 @@ public class TelaInicial extends JFrame {
 
 
     private void iniciarNovoJogo() {
-            JTab j = new JTab();
+    
+        JTextField nomeJ = new JTextField(10);
+        JPasswordField senhaJ = new JPasswordField(10);
+
+        JPanel painel = new JPanel();
+        painel.setLayout(new GridLayout(3, 2));
+        painel.add(new JLabel("Nome de Usuário:"));
+        painel.add(nomeJ);
+        painel.add(new JLabel("Senha:"));
+        painel.add(senhaJ);
+
+        int res = JOptionPane.showConfirmDialog(null, painel, "Login do Jogador", JOptionPane.OK_CANCEL_OPTION);
+        if (res == JOptionPane.OK_OPTION) {
+            String nome = nomeJ.getText();
+            String senha = new String(senhaJ.getPassword());
+
+            if (verificarLogin(nome, senha, jogArq)) {
+                JOptionPane.showMessageDialog(null, "Iniciando o jogo");
+                JTab j = new JTab();
+            } else {
+                JOptionPane.showMessageDialog(null, "Credenciais incorretas.");
+            }
+        }
     }
 
 
@@ -65,10 +90,29 @@ public class TelaInicial extends JFrame {
         Administrador administrador = new Administrador(); 
     }
 
-
     private void mostrarRegras() {
         //colocar as regras aq 
         String regras = "Tem que colocar as regras ainda\n";
         JOptionPane.showMessageDialog(this, regras, "Regras do Jogo", JOptionPane.INFORMATION_MESSAGE);
+    }
+        
+    private boolean verificarLogin(String nome, String senha, String arquivo) {
+        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                String[] credenciais = linha.split(":"); 
+                if (credenciais.length == 2) {
+                    String nomeArquivo = credenciais[0];
+                    String senhaArquivo = credenciais[1];
+
+                    if (nomeArquivo.equals(nome) && senhaArquivo.equals(senha)) {
+                        return true; 
+                    }
+                }
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao ler o arquivo de " + arquivo);
+        }
+        return false; 
     }
 }
