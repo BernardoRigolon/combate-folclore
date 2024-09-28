@@ -4,7 +4,6 @@
  */
 package com.mycompany.jogo.view;
 
-import com.mycompany.jogo.characters.Agua;
 import com.mycompany.jogo.characters.*;
 
 /**

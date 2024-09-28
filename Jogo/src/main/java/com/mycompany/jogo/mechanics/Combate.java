@@ -32,12 +32,12 @@ public class Combate {
             return false;
         }
         if(PersoDefesa!=null){
-            if(PersoDefesa.getNome().equals("Agua")||PersoDefesa.getNome().equals("Montanha"))
+            if (PersoDefesa.getNome().equals("Cuca")&& PersoAtaque.getNome().equals("Lobisomem"))
             {
-                return false;
+                tab.setPersonagem(null, atacante.getL(), atacante.getC());
+                tab.setPersonagem(null, defensor.getL(), defensor.getC());
             }
-            
-            if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
+            else if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
             {
                 verificaVitoria(PersoAtaque, PersoDefesa);
                 if(!"Lobisomem".equals(PersoAtaque.getNome()) || !"Cuca".equals(PersoDefesa.getNome()))
@@ -69,9 +69,9 @@ public class Combate {
                 else
                 {
                     if("Caipora".equals(PersoAtaque.getNome()))
-                    PersoDefesa.setPoder(PersoDefesa.getPoder()+PersoAtaque.getPoder());
+                        PersoDefesa.setPoder(PersoDefesa.getPoder()+PersoAtaque.getPoder());
                     else
-                PersoDefesa.setPoder(PersoDefesa.getPoder()-PersoAtaque.getPoder());
+                        PersoDefesa.setPoder(PersoDefesa.getPoder()-PersoAtaque.getPoder());
                 tab.setPersonagem(null, atacante.getL(), atacante.getC());
                 }
             }
@@ -93,7 +93,8 @@ public class Combate {
     {
         if("Monteiro".equals(pDef.getNome()))
         {           
-            JOptionPane.showMessageDialog(null, "Vitória do time " + pAtq.getTime()); 
+            JOptionPane.showMessageDialog(null, "Vitória do time " + pAtq.getTime());
+            System.exit(1);
         }
     }
 }
