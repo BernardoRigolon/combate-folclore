@@ -20,4 +20,14 @@ public class Posicao {
     {
         return this.c;
     }
+
+    public void setL(int l) {
+        this.l = l;
+    }
+
+    public void setC(int c) {
+        this.c = c;
+    }
+    
+    
 }

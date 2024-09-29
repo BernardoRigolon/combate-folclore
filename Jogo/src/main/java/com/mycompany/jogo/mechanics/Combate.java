@@ -32,11 +32,29 @@ public class Combate {
             return false;
         }
         if(PersoDefesa!=null){
-            if(PersoDefesa.getNome().equals("Agua")||PersoDefesa.getNome().equals("Montanha"))
+            if((PersoDefesa.getNome().equals("Agua") && !"Boto".equals(PersoAtaque.getNome())) || PersoDefesa.getNome().equals("Montanha"))
             {
                 return false;
             }
-            
+            if(PersoAtaque.getNome().equals("Boto") && (PersoDefesa.getNome().equals("Agua")))
+            {
+                if(defensor.getC()-atacante.getC()>0)
+                {
+                    defensor.setC(defensor.getC()+3);
+                }
+                if(defensor.getC()-atacante.getC()<0)
+                {
+                    defensor.setC(defensor.getC()-3);
+                }
+                if(defensor.getL()-atacante.getL()>0)
+                {
+                    defensor.setL(defensor.getL()+2);
+                }
+                if(defensor.getL()-atacante.getL()<0)
+                {
+                    defensor.setL(defensor.getL()-2);
+                }
+            }
             if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
             {
                 verificaVitoria(PersoAtaque, PersoDefesa);
