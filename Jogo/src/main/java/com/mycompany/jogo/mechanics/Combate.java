@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.jogo.mechanics;
 
 import com.mycompany.jogo.characters.Personagem;
 import com.mycompany.jogo.view.Tabuleiro;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Vinicius
- */
 public class Combate {
     private Posicao atacante;
     private Posicao defensor;
@@ -33,29 +25,12 @@ public class Combate {
         }
         if(PersoDefesa!=null){
             if((PersoDefesa.getNome().equals("Agua") && !"Boto".equals(PersoAtaque.getNome())) || PersoDefesa.getNome().equals("Montanha"))
+
             {
-                return false;
+                tab.setPersonagem(null, atacante.getL(), atacante.getC());
+                tab.setPersonagem(null, defensor.getL(), defensor.getC());
             }
-            if(PersoAtaque.getNome().equals("Boto") && (PersoDefesa.getNome().equals("Agua")))
-            {
-                if(defensor.getC()-atacante.getC()>0)
-                {
-                    defensor.setC(defensor.getC()+3);
-                }
-                if(defensor.getC()-atacante.getC()<0)
-                {
-                    defensor.setC(defensor.getC()-3);
-                }
-                if(defensor.getL()-atacante.getL()>0)
-                {
-                    defensor.setL(defensor.getL()+2);
-                }
-                if(defensor.getL()-atacante.getL()<0)
-                {
-                    defensor.setL(defensor.getL()-2);
-                }
-            }
-            if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
+            else if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
             {
                 verificaVitoria(PersoAtaque, PersoDefesa);
                 if(!"Lobisomem".equals(PersoAtaque.getNome()) || !"Cuca".equals(PersoDefesa.getNome()))
@@ -87,9 +62,9 @@ public class Combate {
                 else
                 {
                     if("Caipora".equals(PersoAtaque.getNome()))
-                    PersoDefesa.setPoder(PersoDefesa.getPoder()+PersoAtaque.getPoder());
+                        PersoDefesa.setPoder(PersoDefesa.getPoder()+PersoAtaque.getPoder());
                     else
-                PersoDefesa.setPoder(PersoDefesa.getPoder()-PersoAtaque.getPoder());
+                        PersoDefesa.setPoder(PersoDefesa.getPoder()-PersoAtaque.getPoder());
                 tab.setPersonagem(null, atacante.getL(), atacante.getC());
                 }
             }
@@ -111,7 +86,8 @@ public class Combate {
     {
         if("Monteiro".equals(pDef.getNome()))
         {           
-            JOptionPane.showMessageDialog(null, "Vitória do time " + pAtq.getTime()); 
+            JOptionPane.showMessageDialog(null, "Vitória do time " + pAtq.getTime());
+            System.exit(0);
         }
     }
 }

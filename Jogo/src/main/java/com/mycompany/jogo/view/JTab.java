@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.jogo.view;
 
 import com.mycompany.jogo.characters.Personagem;
@@ -10,7 +6,7 @@ import com.mycompany.jogo.mechanics.Posicao;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class JTab extends JFrame {
     private Tabuleiro tabuleiro;
@@ -32,7 +28,7 @@ public class JTab extends JFrame {
         this.tab = new Personagem[TAM][TAM];
         tabuleiro = new Tabuleiro();
         tabuleiro.inicializaTab();
-        this.tab = tabuleiro.getTab(); // Inicializar o tabuleiro com personagens
+        this.tab = tabuleiro.getTab(); 
 
         // Configura o layout do tabuleiro em uma grade 11x11
         JPanel board = new JPanel(new GridLayout(TAM, TAM));
@@ -40,13 +36,9 @@ public class JTab extends JFrame {
         for (int i = 0; i < TAM; i++) {
             for (int j = 0; j < TAM; j++) {
                 JButton botoes = new JButton();
-                
-                
+              
                 // Definir a aparência das células com base no personagem
                 atualizaCelula(botoes,i,j);
-                
-                //botoes.setBackground(Color.white);
-                //desenhaFundo(botoes,i,j);
                 
                 final int l = i;
                 final int c = j;
@@ -62,7 +54,6 @@ public class JTab extends JFrame {
                                linhaAtc = l;
                                colunaAtc = c;
                                ataque = new Posicao(l,c);
-                               //botao.setBackground(Color.blue);
                                botao.setForeground(Color.white);
                                vez1 = !vez1;
                            }
@@ -78,7 +69,6 @@ public class JTab extends JFrame {
                        if(podeAtacar){
                            atualizaCelula(tela[linhaAtc][colunaAtc],linhaAtc,colunaAtc);
                            atualizaCelula(tela[l][c],l,c);
-                           //botao.setBackground(Color.green);
                        }
                        else{
                            if(tab[l][c].getTime() == 1)
@@ -88,29 +78,15 @@ public class JTab extends JFrame {
                            JOptionPane.showMessageDialog(null, "Movimento inválido!");
                            vez1=!vez1;
                        }
-                       
-                       //tela[linhaAtc][colunaAtc].setBackground(Color.white);
-                       //desenhaFundo(botao,linhaAtc,colunaAtc);
-                       //desenhaFundo(botao,l,c);
-                       //tela[l][c].setBackground(Color.white);
                        personagemAtc = null;
                        linhaAtc = -1;
                        colunaAtc = -1;
-                       
-                       
-                       
                    }
                 });
-               
-               
                tela[i][j] = botoes;
-               //botoes.setBackground(Color.white);
-               //desenhaFundo(botoes,i,j);
-               //desenhaFundo(botoes,linhaAtc,colunaAtc);
                board.add(botoes);
             }
         }
-
         add(board);
         setSize(900, 900);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -146,8 +122,6 @@ public class JTab extends JFrame {
                 else
                     button.setBackground(new Color(167,218,74));
             }
-                    //button.setBackground(new Color(167,218,74));
-            
         } else {
             button.setText("");
             if((l+c)%2==0){
