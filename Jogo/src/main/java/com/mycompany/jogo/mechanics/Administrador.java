@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.jogo.mechanics;
 
 
@@ -19,17 +15,12 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-/**
- *
- * @author micka
- */
-
 public class Administrador extends JFrame {
     private static final String admArq = "administradores.txt";
     private static final String jogArq = "jogadores.txt";
 
     public Administrador() {
-        if (loginAdm()) {
+        if (loginAdm()) { // chama o metodo para liberar o acesso
             opcoesAdm();
         } else {
             JOptionPane.showMessageDialog(null, "Credenciais inválidas");
@@ -52,16 +43,16 @@ public class Administrador extends JFrame {
             String sNome = nome.getText();
             String sSenha = new String(senha.getPassword());
 
-            return verificarLogin(sNome, sSenha, admArq);
+            return verificarLogin(sNome, sSenha); // chama o metodo para verificar se a credencial inserida é valida
         }
         return false;
     }
 
-    private boolean verificarLogin(String nome, String senha, String arquivo) {
-        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
+    private boolean verificarLogin(String nome, String senha) { // acessa o arquivo dos administradores e verifica se o login inserido bate com algum dos que estão lá
+        try (BufferedReader br = new BufferedReader(new FileReader(admArq))) {
             String linha;
             while ((linha = br.readLine()) != null) {
-                String[] cadastro = linha.split(":"); // tem que colocar usuario:senha no arquivo
+                String[] cadastro = linha.split(":"); 
                 if (cadastro.length == 2) {
                     String nomeArquivo = cadastro[0];
                     String senhaArquivo = cadastro[1];
@@ -72,13 +63,13 @@ public class Administrador extends JFrame {
                 }
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao ler o arquivo de " + arquivo);
+            JOptionPane.showMessageDialog(null, "Erro ao ler o arquivo de administrador" ); 
         }
         return false; 
     }
 
     
-    private void opcoesAdm() {
+    private void opcoesAdm() { // mostra as ações que o ADM pode realizar
         String[] opcoes = {"Adicionar Jogador", "Remover Jogador", "Ver Lista de Jogadores"};
         int escolha = JOptionPane.showOptionDialog(null, "Escolha uma opção", "Menu de Administração",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
@@ -90,7 +81,7 @@ public class Administrador extends JFrame {
         }
     }
 
-    public void cadastrar() {
+    public void cadastrar() { // faz o cadastro de um novo jogador
         JTextField nomeJ = new JTextField(10);
         JPasswordField senhaJ = new JPasswordField(10);
         JPanel painel = new JPanel();
@@ -110,7 +101,7 @@ public class Administrador extends JFrame {
         }
     }
 
-    private void salvarJogador(Jogador jogador) {
+    private void salvarJogador(Jogador jogador) { // insere o jogador cadastrado no arquivo de jogadores
         try (FileWriter fw = new FileWriter(jogArq, true);
              BufferedWriter bw = new BufferedWriter(fw)) {
             bw.write(jogador.getNome() + ":" + jogador.getSenha());
@@ -120,7 +111,7 @@ public class Administrador extends JFrame {
         }
     }
     
-    public void removerJogador() {
+    public void removerJogador() { // remove o jogador selecionado do arquivo
         ArrayList<Jogador> jogadores = getJogadores();
         if (jogadores.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Nenhum jogador cadastrado.");
@@ -132,13 +123,13 @@ public class Administrador extends JFrame {
                 "Remover Jogador", JOptionPane.QUESTION_MESSAGE, null, nomes, nomes[0]);
 
         if (jgdrSelecionado != null) {
-            jogadores.removeIf(jogador -> jogador.getNome().equals(jgdrSelecionado));
+            jogadores.removeIf(jogador -> jogador.getNome().equals(jgdrSelecionado)); // remove o jogador selecionado da lista
             salvarTodosJogadores(jogadores);
             JOptionPane.showMessageDialog(null, "Jogador removido");
         }
     }
     
-    private void salvarTodosJogadores(ArrayList<Jogador> jogadores) {
+    private void salvarTodosJogadores(ArrayList<Jogador> jogadores) { // coloca no arquivo jogadores todos os jogadores exceto o removido
         try (FileWriter fw = new FileWriter(jogArq, false);
              BufferedWriter bw = new BufferedWriter(fw)) {
             for (Jogador jogador : jogadores) {
@@ -150,7 +141,7 @@ public class Administrador extends JFrame {
         }
     }
 
-    public ArrayList<Jogador> getJogadores() {
+    public ArrayList<Jogador> getJogadores() { // acessa o arquivo jogadores e retorna uma lista com todos eles
         ArrayList<Jogador> jogadores = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(jogArq))) {
@@ -169,7 +160,7 @@ public class Administrador extends JFrame {
         return jogadores;
     }
     
-    public void exibirJogadores() {
+    public void exibirJogadores() { // exibe os jogadores cadastrados na tela
         ArrayList<Jogador> jogadores = getJogadores();
         if (jogadores.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Nenhum jogador cadastrado.");

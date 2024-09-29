@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.jogo.view;
+
 import com.mycompany.jogo.mechanics.Administrador;
 import javax.swing.*;
 import java.awt.*;
@@ -11,15 +8,10 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/**
- *
- * @author micka
- */
-
-
 public class TelaInicial extends JFrame {
     private static final String jogArq = "jogadores.txt";
-    public TelaInicial() {
+    private static final String regrasArq = "regras.txt";
+    public TelaInicial() { // inicializa a janela com as opções 
 
         super("Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,7 +21,7 @@ public class TelaInicial extends JFrame {
         JPanel painelBotoes = new JPanel();
         painelBotoes.setLayout(new GridLayout(3, 1, 10, 10)); 
 
-        JButton btnNovoJogo = new JButton("Novo Jogo");
+        JButton btnNovoJogo = new JButton("Novo Jogo"); // botão para iniciar um novo jogo
         btnNovoJogo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,7 +29,7 @@ public class TelaInicial extends JFrame {
             }
         });
         painelBotoes.add(btnNovoJogo);
-        JButton btnAdministracao = new JButton("Administração");
+        JButton btnAdministracao = new JButton("Administração"); //botao para acessar a administração
         btnAdministracao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -46,7 +38,7 @@ public class TelaInicial extends JFrame {
         });
         painelBotoes.add(btnAdministracao);
 
-        JButton btnRegras = new JButton("Regras do Jogo");
+        JButton btnRegras = new JButton("Regras do Jogo"); // botão para ver as regras do jogo
         btnRegras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,8 +50,7 @@ public class TelaInicial extends JFrame {
         setVisible(true);
     }
 
-
-    private void iniciarNovoJogo() {
+    private void iniciarNovoJogo() { // inicia um novo jogo
     
         JTextField nomeJ = new JTextField(10);
         JPasswordField senhaJ = new JPasswordField(10);
@@ -76,7 +67,7 @@ public class TelaInicial extends JFrame {
             String nome = nomeJ.getText();
             String senha = new String(senhaJ.getPassword());
 
-            if (verificarLogin(nome, senha, jogArq)) {
+            if (verificarLogin(nome, senha, jogArq)) { // caso o jogador esteja cadastrado inicia um novo jogo
                 JOptionPane.showMessageDialog(null, "Iniciando o jogo");
                 JTab j = new JTab();
             } else {
@@ -85,18 +76,28 @@ public class TelaInicial extends JFrame {
         }
     }
 
-
     private void abrirTelaAdministracao() {
         Administrador administrador = new Administrador(); 
     }
 
-    private void mostrarRegras() {
-        //colocar as regras aq 
-        String regras = "Tem que colocar as regras ainda\n";
+    private void mostrarRegras() { // acessa o arquivo regras e mostra as regras
+        
+        String regras="";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(regrasArq))) {
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                regras+=linha;
+                regras+="\n";
+                
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro arquivo regras");
+        }
         JOptionPane.showMessageDialog(this, regras, "Regras do Jogo", JOptionPane.INFORMATION_MESSAGE);
     }
         
-    private boolean verificarLogin(String nome, String senha, String arquivo) {
+    private boolean verificarLogin(String nome, String senha, String arquivo) { // verifica se o login passado esta no arquivo desejado
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
@@ -111,7 +112,7 @@ public class TelaInicial extends JFrame {
                 }
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao ler o arquivo de " + arquivo);
+            JOptionPane.showMessageDialog(null, "Erro arquivo " + arquivo);
         }
         return false; 
     }

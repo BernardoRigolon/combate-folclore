@@ -1,17 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.jogo.mechanics;
 
 import com.mycompany.jogo.characters.Personagem;
 import com.mycompany.jogo.view.Tabuleiro;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Vinicius
- */
 public class Combate {
     private Posicao atacante;
     private Posicao defensor;
@@ -94,7 +86,7 @@ public class Combate {
         if("Monteiro".equals(pDef.getNome()))
         {           
             JOptionPane.showMessageDialog(null, "Vitória do time " + pAtq.getTime());
-            System.exit(1);
+            System.exit(0);
         }
     }
 }
