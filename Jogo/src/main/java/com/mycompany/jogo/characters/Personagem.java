@@ -8,7 +8,6 @@ public abstract class Personagem {
     private String nome;
     private int time;
     private int poder;
-    private Image imagem;
     Tabuleiro tab;
     private String descricao;  //Fazer a descrição da movimentação de cada
     
@@ -39,14 +38,6 @@ public abstract class Personagem {
 
     public void setPoder(int poder) {
         this.poder = poder;
-    }
-
-    public Image getImagem() {
-        return imagem;
-    }
-
-    public void setImagem(Image imagem) {
-        this.imagem = imagem;
     }
 
     public Tabuleiro getTab() {
