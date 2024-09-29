@@ -71,7 +71,7 @@ public class JTab extends JFrame {
                            atualizaCelula(tela[l][c],l,c);
                        }
                        else{
-                           if(tab[l][c].getTime() == 1)
+                           if(tab[linhaAtc][colunaAtc].getTime() == 1)
                                 tela[linhaAtc][colunaAtc].setForeground(new Color(145,8,148));
                            else
                                 tela[linhaAtc][colunaAtc].setForeground(new Color(255, 116, 2));
