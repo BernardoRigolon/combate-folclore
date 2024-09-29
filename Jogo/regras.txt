@@ -1,0 +1,31 @@
+1- O jogo é ambientado em um tabuleiro 11x11 onde 12 casas são água e 6 casas são montanhas.
+2- Água e montanha são instransponíveis pela maioria dos personagens.
+2- Cada personagem do jogo possui uma movimentação única e um número que representa seu poder.
+3- Durante um combate, o personagem com maior poder perderá poder equivalente ao poder do inimigo.
+Por exemplo, caso um Personagem de poder 8 ataca um personagem de poder 6, o poder do personagem 8 passa para 2.
+4- Caso um personagem com um poder menor ataque um de poder superior, o de menor será eliminado e o de maior perderá poder.
+5- Em caso de combate entre personagens de mesmo poder, os dois serão eliminados.
+6- O objetivo do jogo é capturar a bandeira do inimigo, chamada de Monteiro.
+7- Personagens:
+         Cuca- 10 de poder- se movimenta 1 para frente ou para trás. 
+         Mula sem cabeça- 9 de poder- se movimenta 1 para frente ou para trás.
+         Boitatá- 8 de poder- se movimenta duas casas para frente ou para o lado.
+         Saci- 7 de poder- se movimenta 1 para todas as direções.
+         Curupira- 6 de poder- se movimenta 2 para frente ou 1 para o lado.
+         Iara- 5 de poder- Se movimenta 1 para frente ou dois para o lado.
+         Boto cor de rosa- 4 de poder- pode atravessar a água. Se movimenta 1 para frente ou para trás.
+         Boi Bumbá 3 de poder- pode pular obstáculos. Se movimenta até 2 para frente ou para os lados.
+         Caipora 2 de poder- doa seu poder para uma tropa aliada. Se movimenta 1 para frente ou para o lado.
+         Lobisomem- 1 de poder- elimina a Cuca caso entrem em combate. Se movimenta 1 para frente ou para o lado.
+8- Distribuição dos personagens:
+        Cuca- uma para cada jogador.
+        Mula sem cabeça- uma para cada jogador.
+        Boitatá- dois para cada jogador.
+        Saci- quatro para cada jogador
+        Curupira- quatro para cada jogador
+        Iara- quatro para cada jogador
+        Boto cor de rosa- quatro para cada jogador
+        Boi bumbá- quatro para cada jogador
+        Caipora- três para cada jogador.
+        Lobisomem- dois para cada jogador.
+	
