@@ -25,10 +25,8 @@ public class Combate {
         }
         if(PersoDefesa!=null){
             if((PersoDefesa.getNome().equals("Agua") && !"Boto".equals(PersoAtaque.getNome())) || PersoDefesa.getNome().equals("Montanha"))
-
             {
-                tab.setPersonagem(null, atacante.getL(), atacante.getC());
-                tab.setPersonagem(null, defensor.getL(), defensor.getC());
+                return false;
             }
             else if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
             {
