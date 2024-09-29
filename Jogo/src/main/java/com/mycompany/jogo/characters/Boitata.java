@@ -15,44 +15,52 @@ public class Boitata extends Personagem {
     @Override
     public boolean verificaPosicao(Posicao atual, Posicao depois, Tabuleiro tab)
     {
-        int x, y;
+        int x,y;
         x = depois.getL() - atual.getL();
         y = depois.getC() - atual.getC();
-        if(x>0)
+        if(Math.abs(x)>1 || Math.abs(y)>1)
         {
-            for(int i=0; i<x; i++)
+            if(Math.abs(y)>1)
+        {
+            if(y>0)
             {
-                if(this.getTab().getPersonagem(depois.getL(), depois.getC()+i) != null && (this.getTab().getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || this.getTab().getPersonagem(depois.getL(), depois.getC()).getNome() == "Agua"))
+                if((tab.getPersonagem(depois.getL(), depois.getC()-1) == null) && (tab.getPersonagem(depois.getL(), depois.getC()) == null || (tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime()) && (tab.getPersonagem(depois.getL(), depois.getC()-1).getTime() != this.getTime())))
+                return true;
+        else
             return false;
             }
-            return true;
-        }
-        if(x<0)
-        {
-            for(int i=0; i>x; i--)
+            else
             {
-                if(tab.getPersonagem(depois.getL(), depois.getC()-i) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
+                if((tab.getPersonagem(depois.getL(), depois.getC()+1) == null) && (tab.getPersonagem(depois.getL(), depois.getC()) == null || (tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime()) && (tab.getPersonagem(depois.getL(), depois.getC()+1).getTime() != this.getTime())))
+                return true;
+        else
+                return false;
+            }
+        }
+            if(Math.abs(x)>1)
+        {
+            if(x>0)
+            {
+                if((tab.getPersonagem(depois.getL()-1, depois.getC()) == null) && (tab.getPersonagem(depois.getL(), depois.getC()) == null || (tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime()) && (tab.getPersonagem(depois.getL()-1, depois.getC()).getTime() != this.getTime())))
+                return true;
+        else
             return false;
             }
-            return true;
-        }
-        if(y>0)
-        {
-           for(int i=0; i<y; i++)
+            else
             {
-                if(tab.getPersonagem(depois.getL(), depois.getC()+i) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
-            return false;
-            } 
-           return true;
-        }
-        if(y<0)
-        {
-            for(int i=0; i>y; i--)
-            {
-                if(tab.getPersonagem(depois.getL(), depois.getC()-i) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
-            return false;
+                if((tab.getPersonagem(depois.getL()+1, depois.getC()) == null) && (tab.getPersonagem(depois.getL(), depois.getC()) == null || (tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime()) && (tab.getPersonagem(depois.getL()+1, depois.getC()).getTime() != this.getTime())))
+                return true;
+        else
+                return false;
             }
+        }
+        }
+        else
+        {
+            if(tab.getPersonagem(depois.getL(), depois.getC()) == null || tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
             return true;
+        else
+            return false;
         }
         return false;
     }
@@ -65,7 +73,7 @@ public class Boitata extends Personagem {
         int x, y;
         x = depois.getL() - atual.getL();
         y = depois.getC() - atual.getC();
-        if((Math.abs(y) > 3 || Math.abs(x) > 3) || (Math.abs(x)!=0 && Math.abs(y)!=0) || (x==0 && y==0))
+        if((Math.abs(y) > 2 || Math.abs(x) > 2) || (Math.abs(x)!=0 && Math.abs(y)!=0) || (x==0 && y==0))
         {
             return false;
         }

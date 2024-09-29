@@ -17,29 +17,26 @@ public class Curupira extends Personagem{
     {
         int x;
         x = Math.abs(depois.getL() - atual.getL());
-        if(x>1)
+        if(Math.abs(x)>1)
         {
-        if(this.getTime()==1)
-        {
-        for(int i=0; i<x; i++)
-        {
-        if(tab.getPersonagem(depois.getL()-i, depois.getC()) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
+            if(x>0)
+            {
+                if((tab.getPersonagem(depois.getL()-1, depois.getC()) == null) && (tab.getPersonagem(depois.getL(), depois.getC()) == null || (tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime()) && (tab.getPersonagem(depois.getL()-1, depois.getC()).getTime() != this.getTime())))
+                return true;
+        else
             return false;
-        }
+            }
+            else
+            {
+                if((tab.getPersonagem(depois.getL()+1, depois.getC()) == null) && (tab.getPersonagem(depois.getL(), depois.getC()) == null || (tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime()) && (tab.getPersonagem(depois.getL()+1, depois.getC()).getTime() != this.getTime())))
+                return true;
+        else
+                return false;
+            }
         }
         else
         {
-            for(int i=0; i<x; i++)
-        {
-        if(tab.getPersonagem(depois.getL()+i, depois.getC()) != null && (tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome())))
-            return false;
-        }
-        }
-        return true;
-        }
-        else
-        {
-            if(tab.getPersonagem(depois.getL(), depois.getC()) == null || tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
+        if(tab.getPersonagem(depois.getL(), depois.getC()) == null || tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
             return true;
         else
             return false;
@@ -54,7 +51,7 @@ public class Curupira extends Personagem{
         int x, y;
         x = depois.getL() - atual.getL();
         y = depois.getC() - atual.getC();
-        if(((x > 4 || x < -4) || Math.abs(y) > 1) || (Math.abs(x)!=0 && Math.abs(y)!=0) || (x==0 && y==0))
+        if(Math.abs(y) > 1 || Math.abs(x) > 2 || (Math.abs(x)!=0 && Math.abs(y)!=0) || (x==0 && y==0))
         {
             return false;
         }
