@@ -36,7 +36,7 @@ public class BotoCorDeRosa extends Personagem {
         }
         else
         {
-        System.out.println("Posição inválida");
+    
         return false;
         }
     }    

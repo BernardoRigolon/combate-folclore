@@ -37,7 +37,7 @@ public class Combate {
                     else
                     PersoAtaque.setPoder(PersoAtaque.getPoder()-PersoDefesa.getPoder());
                 }
-                System.out.println("Agora "+PersoAtaque.getNome()+" Tem "+PersoAtaque.getPoder()+" de poder");
+                
                 if("Caipora".equals(PersoAtaque.getNome()))
                 {
                     tab.setPersonagem(null, atacante.getL(), atacante.getC());
