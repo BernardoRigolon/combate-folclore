@@ -17,6 +17,7 @@ Por exemplo, caso um Personagem de poder 8 ataca um personagem de poder 6, o pod
          Boi Bumbá 3 de poder- pode pular obstáculos. Se movimenta até 2 para frente ou para os lados.
          Caipora 2 de poder- doa seu poder para uma tropa aliada. Se movimenta 1 para frente ou para o lado.
          Lobisomem- 1 de poder- elimina a Cuca caso entrem em combate. Se movimenta 1 para frente ou para o lado.
+         Monteiro- é a bandeira- 0 de poder.
 8- Distribuição dos personagens:
         Cuca- uma para cada jogador.
         Mula sem cabeça- uma para cada jogador.
