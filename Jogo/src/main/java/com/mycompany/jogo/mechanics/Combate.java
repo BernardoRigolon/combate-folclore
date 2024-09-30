@@ -27,17 +27,42 @@ public class Combate {
             {
                 return false;
             }
-            else if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
+            if(PersoAtaque.getNome().equals("Boto") && PersoDefesa.getNome().equals("Agua"))
             {
+                if(defensor.getC()-atacante.getC()>0)
+                {
+                    defensor.setC(defensor.getC()+2);
+                }
+                if(defensor.getC()-atacante.getC()<0)
+                {
+                    defensor.setC(defensor.getC()-2);
+                }
+                if(defensor.getL()-atacante.getL()>0)
+                {
+                    defensor.setL(defensor.getL()+3);
+                }
+                if(defensor.getL()-atacante.getL()<0)
+                {
+                    defensor.setL(defensor.getL()-3);
+                }
+            }
+            if(PersoAtaque.getPoder()>PersoDefesa.getPoder())
+            {
+                if(PersoAtaque.getNome().equals("Caipora") && PersoDefesa.getNome().equals("Monteiro"))
+                {
+                    return false;
+                }
                 verificaVitoria(PersoAtaque, PersoDefesa);
                 if(!"Lobisomem".equals(PersoAtaque.getNome()) || !"Cuca".equals(PersoDefesa.getNome()))
                 {
                     if("Caipora".equals(PersoAtaque.getNome()))
+                    {
                         PersoAtaque.setPoder(0);
+                        PersoDefesa.setPoder(PersoDefesa.getPoder()+PersoAtaque.getPoder());
+                    }
                     else
                     PersoAtaque.setPoder(PersoAtaque.getPoder()-PersoDefesa.getPoder());
                 }
-                System.out.println("Agora "+PersoAtaque.getNome()+" Tem "+PersoAtaque.getPoder()+" de poder");
                 if("Caipora".equals(PersoAtaque.getNome()))
                 {
                     tab.setPersonagem(null, atacante.getL(), atacante.getC());

@@ -49,7 +49,7 @@ public class Tabuleiro {
         
         tab[2][3]=tab[8][3]=tab[1][5]=tab[9][5]=tab[2][7]=tab[8][7]=new Montanha();
         
-        tab[4][2]=tab[4][3]=tab[5][2]=tab[5][3]=tab[4][7]=tab[4][4]=tab[5][7]=tab[5][8]=tab[5][4]=tab[5][9]=tab[4][8]=tab[4][9]=new Agua();
+        tab[4][2]=tab[4][3]=tab[5][2]=tab[5][3]=tab[6][2]=tab[6][3]=tab[4][7]=tab[5][7]=tab[6][7]=tab[4][8]=tab[5][8]=tab[6][8]=new Agua();
  
         } 
     

@@ -15,8 +15,10 @@ public class Caipora extends Personagem {
     @Override
     public boolean verificaPosicao(Posicao atual, Posicao depois, Tabuleiro tab)
     {
-        if(tab.getPersonagem(depois.getL(), depois.getC()) == null || tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
+        if((tab.getPersonagem(depois.getL(), depois.getC()) == null || tab.getPersonagem(depois.getL(), depois.getC()).getTime() == this.getTime() || tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime()))
+        {
             return true;
+        }
         else
             return false;
     }
