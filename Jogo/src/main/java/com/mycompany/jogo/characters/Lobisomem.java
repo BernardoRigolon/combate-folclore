@@ -38,7 +38,7 @@ public class Lobisomem extends Personagem {
         return true;
         }
         }
-        System.out.println("Posição inválida");
+  
         return false;
     }
 }

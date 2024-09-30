@@ -94,6 +94,9 @@ public class Administrador extends JFrame {
         int res = JOptionPane.showConfirmDialog(null, painel, "Cadastrar novo jogador", JOptionPane.OK_CANCEL_OPTION);
         if (res == JOptionPane.OK_OPTION) {
             String nome = nomeJ.getText();
+            while(!verificaNome(nome)){
+                nome = JOptionPane.showInputDialog(null, "Nome inválido! Digite novamente:");
+            }
             String senha = new String(senhaJ.getPassword());
             Jogador novo = new Jogador(nome, senha);
             salvarJogador(novo);
@@ -171,5 +174,13 @@ public class Administrador extends JFrame {
             }
             JOptionPane.showMessageDialog(null, sb.toString());
         }
+    }
+    
+    private boolean verificaNome(String nome){
+        for(int i=0;i<nome.length();i++){
+            if(nome.charAt(i)>='0' && nome.charAt(i)<='9')
+                return false;
+        }
+        return true;
     }
 }
