@@ -39,7 +39,7 @@ public class Cuca extends Personagem {
         return true;
         }
         }
-        System.out.println("Posição inválida");
+      
         return false;
     }
 }
