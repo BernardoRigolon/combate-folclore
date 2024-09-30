@@ -3,6 +3,13 @@ package com.mycompany.jogo.characters;
 import com.mycompany.jogo.mechanics.Posicao;
 import com.mycompany.jogo.view.Tabuleiro;
 
+/*
+Bernardo de Carvalho Rigolon – 202365561C 
+Mickaell de Oliveira - 202365514B 
+Miguel de Deus Oliveira – 202365521B 
+Vinicius Campos Priamo – 202365567C 
+*/
+
 public class Saci extends Personagem{
 
     public Saci(int time)
@@ -10,6 +17,7 @@ public class Saci extends Personagem{
         this.setNome("Saci");
         this.setPoder(7);
         this.setTime(time);
+        this.setDescricao("Pode movimentar 1 para todas as posições, inclusive diagonal");
     }
     
     @Override

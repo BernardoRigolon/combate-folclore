@@ -3,6 +3,13 @@ package com.mycompany.jogo.characters;
 import com.mycompany.jogo.mechanics.Posicao;
 import com.mycompany.jogo.view.Tabuleiro;
 
+/*
+Bernardo de Carvalho Rigolon – 202365561C 
+Mickaell de Oliveira - 202365514B 
+Miguel de Deus Oliveira – 202365521B 
+Vinicius Campos Priamo – 202365567C 
+*/
+
 public class Bandeira extends Personagem {
     
         
@@ -11,6 +18,7 @@ public class Bandeira extends Personagem {
         this.setNome("Monteiro");
         this.setPoder(0);
         this.setTime(time);
+        this.setDescricao("Movimentação Básica, se morrer vitória do adversário");
     }
     
     @Override

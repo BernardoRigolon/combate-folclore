@@ -4,6 +4,13 @@ import com.mycompany.jogo.characters.Personagem;
 import com.mycompany.jogo.view.Tabuleiro;
 import javax.swing.JOptionPane;
 
+/*
+Bernardo de Carvalho Rigolon – 202365561C 
+Mickaell de Oliveira - 202365514B 
+Miguel de Deus Oliveira – 202365521B 
+Vinicius Campos Priamo – 202365567C 
+*/
+
 public class Combate {
     private Posicao atacante;
     private Posicao defensor;

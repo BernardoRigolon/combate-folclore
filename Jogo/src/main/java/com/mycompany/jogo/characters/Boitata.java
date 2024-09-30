@@ -3,6 +3,13 @@ package com.mycompany.jogo.characters;
 import com.mycompany.jogo.mechanics.Posicao;
 import com.mycompany.jogo.view.Tabuleiro;
 
+/*
+Bernardo de Carvalho Rigolon – 202365561C 
+Mickaell de Oliveira - 202365514B 
+Miguel de Deus Oliveira – 202365521B 
+Vinicius Campos Priamo – 202365567C 
+*/
+
 public class Boitata extends Personagem {
     
     public Boitata(int time)
@@ -10,6 +17,7 @@ public class Boitata extends Personagem {
         this.setNome("Boitata");
         this.setPoder(8);
         this.setTime(time);
+        this.setDescricao("Pode se movimentar 2 para frente ou 2 para o lado");
     }
     
     @Override

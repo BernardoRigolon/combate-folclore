@@ -2,6 +2,13 @@ package com.mycompany.jogo.view;
 
 import com.mycompany.jogo.characters.*;
 
+/*
+Bernardo de Carvalho Rigolon – 202365561C 
+Mickaell de Oliveira - 202365514B 
+Miguel de Deus Oliveira – 202365521B 
+Vinicius Campos Priamo – 202365567C 
+*/
+
 public class Tabuleiro {
     private Personagem[][] tab;
     private final int TAM = 11;

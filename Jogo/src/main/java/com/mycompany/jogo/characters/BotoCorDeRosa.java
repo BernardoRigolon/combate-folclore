@@ -3,6 +3,13 @@ package com.mycompany.jogo.characters;
 import com.mycompany.jogo.mechanics.Posicao;
 import com.mycompany.jogo.view.Tabuleiro;
 
+/*
+Bernardo de Carvalho Rigolon – 202365561C 
+Mickaell de Oliveira - 202365514B 
+Miguel de Deus Oliveira – 202365521B 
+Vinicius Campos Priamo – 202365567C 
+*/
+
 public class BotoCorDeRosa extends Personagem {
     
     public BotoCorDeRosa(int time)
@@ -10,12 +17,15 @@ public class BotoCorDeRosa extends Personagem {
         this.setNome("Boto");
         this.setPoder(4);
         this.setTime(time);
+        this.setDescricao("Movimentação básica, atravessa água e fica invisível");
     }
     
     @Override
     public boolean verificaPosicao(Posicao atual, Posicao depois, Tabuleiro tab)
     {
-        if(tab.getPersonagem(depois.getL(), depois.getC()) == null || "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome()) || tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
+        if(tab.getPersonagem(depois.getL(), depois.getC()) == null ||
+                "Agua".equals(tab.getPersonagem(depois.getL(), depois.getC()).getNome()) 
+                || tab.getPersonagem(depois.getL(), depois.getC()).getTime() != this.getTime())
             return true;
         else
             return false;
