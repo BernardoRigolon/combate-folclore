@@ -13,7 +13,7 @@ Por exemplo, caso um Personagem de poder 8 ataca um personagem de poder 6, o pod
          Saci- 7 de poder- se movimenta 1 para todas as direções.
          Curupira- 6 de poder- se movimenta 2 para frente ou 1 para o lado.
          Iara- 5 de poder- Se movimenta 1 para frente ou dois para o lado.
-         Boto cor de rosa- 4 de poder- pode atravessar a água. Se movimenta 1 para frente ou para trás.
+         Boto cor de rosa- 4 de poder- pode atravessar a água e fica invisível até ser movimentado novamente. Se movimenta 1 para frente ou para trás.
          Boi Bumbá 3 de poder- pode pular obstáculos. Se movimenta até 2 para frente ou para os lados.
          Caipora 2 de poder- doa seu poder para uma tropa aliada. Se movimenta 1 para frente ou para o lado.
          Lobisomem- 1 de poder- elimina a Cuca caso entrem em combate. Se movimenta 1 para frente ou para o lado.
