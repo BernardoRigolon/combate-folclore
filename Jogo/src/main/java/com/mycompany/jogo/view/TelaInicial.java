@@ -15,13 +15,16 @@ public class TelaInicial extends JFrame {
 
         super("Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(600, 600);
+        setSize(500, 500);
         setLayout(new BorderLayout());
 
         JPanel painelBotoes = new JPanel();
-        painelBotoes.setLayout(new GridLayout(3, 1, 10, 10)); 
-
+        painelBotoes.setLayout(new GridLayout(3, 1, 3, 3));
+        this.setLocationRelativeTo(null);
+        painelBotoes.setBackground(new Color(46,118,4));
         JButton btnNovoJogo = new JButton("Novo Jogo"); // botão para iniciar um novo jogo
+        btnNovoJogo.setBackground(new Color(142,204,59));
+        btnNovoJogo.setForeground(new Color(0,0,0));
         btnNovoJogo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,6 +33,8 @@ public class TelaInicial extends JFrame {
         });
         painelBotoes.add(btnNovoJogo);
         JButton btnAdministracao = new JButton("Administração"); //botao para acessar a administração
+        btnAdministracao.setBackground(new Color(142,204,59));
+        btnAdministracao.setForeground(new Color(0,0,0));
         btnAdministracao.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,6 +44,8 @@ public class TelaInicial extends JFrame {
         painelBotoes.add(btnAdministracao);
 
         JButton btnRegras = new JButton("Regras do Jogo"); // botão para ver as regras do jogo
+        btnRegras.setBackground(new Color(142,204,59));
+        btnRegras.setForeground(new Color(0,0,0));
         btnRegras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
