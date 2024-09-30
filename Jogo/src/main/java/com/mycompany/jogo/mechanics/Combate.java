@@ -20,7 +20,6 @@ public class Combate {
         Personagem PersoDefesa=tab.getPersonagem(defensor.getL(), defensor.getC());
         if(PersoAtaque.verificaMovimentacao(pAtaque, pDefesa, tab)==false)
         {
-            System.out.println("Movimento invalido!");
             return false;
         }
         if(PersoDefesa!=null){
