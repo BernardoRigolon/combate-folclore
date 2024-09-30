@@ -40,6 +40,7 @@ public class JTab extends JFrame {
                 // Definir a aparência das células com base no personagem
                 atualizaCelula(botoes,i,j);
                 
+                //Realizado para utilizar no ActionListener
                 final int l = i;
                 final int c = j;
                 
@@ -47,9 +48,10 @@ public class JTab extends JFrame {
                botoes.addActionListener((ActionEvent e) -> {
                    JButton botao = tela[l][c];
                    
+                   //Primeiro click
                    if(personagemAtc == null){
                        if(tab[l][c] != null){
-                           if((tab[l][c].getTime()==1 && vez1) || (tab[l][c].getTime()==2 && !vez1)){
+                           if((tab[l][c].getTime()==1 && vez1) || (tab[l][c].getTime()==2 && !vez1)){    //Verificação do turno
                                personagemAtc = tab[l][c];
                                linhaAtc = l;
                                colunaAtc = c;
@@ -62,6 +64,7 @@ public class JTab extends JFrame {
                        }
                    }
                    else{
+                       //Segundo click
                        defesa = new Posicao(l,c);
                        Combate combate = new Combate(tabuleiro);
                        boolean podeAtacar = combate.ataque(ataque, defesa, tabuleiro);
@@ -96,16 +99,17 @@ public class JTab extends JFrame {
     private void atualizaCelula(JButton button, int l, int c) {
         if (tab[l][c] != null) {
             if("Agua".equals(tab[l][c].getNome()) || "Montanha".equals(tab[l][c].getNome())){
-                button.setText("");
+                button.setText("");   //Agua e Montanha sem nome
             }
             else
                 button.setText(tab[l][c].getNome() + "-" + tab[l][c].getPoder());
-            button.setToolTipText(tab[l][c].getDescricao());
+            button.setToolTipText(tab[l][c].getDescricao());   //Mostra a movimentação básica quando passa o mouse
             if(tab[l][c].getTime() == 1)
                 button.setForeground(new Color(145,8,148));
             else
                 button.setForeground(new Color(255, 116, 2));
             
+            //Mudança das cores
             if((l+c)%2==0){
                 if("Agua".equals(tab[l][c].getNome()))
                     button.setBackground(new Color(15, 142, 171));
